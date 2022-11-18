@@ -7,4 +7,4 @@ This is a very simple token grabber written in Go that can grab:
 But just for now...
 
 ## How do i use it?
-Well, you could
+Well, you could just simply download <a href="https://www.wikipedia.com/pene">download</a>
