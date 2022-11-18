@@ -3,4 +3,9 @@
 
 <br>
 
-<p>but...how do i build it?<p>
+<h1 align="center">so...¿how do i use it?<h1>
+<p align="center">well my dear friend, i feel so bad telling you this but, you can <a href="https://www.wikipedia.com/sexo">compile</a> it using this command:</p>
+```
+GOOS=windows go build main.go
+```
+psdt: if you're on windows then you should skip "GOOS=windows"
