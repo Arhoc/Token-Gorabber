@@ -22,6 +22,4 @@ GOOS=windows go build -ldflags="-s -w" main.go
 ```
 <b>There you go.</b>
 
-Or if you prefer, you could just download <a href="#">pre-build release</a> and get fun ;).
-
-<ins>Coming Soon</ins>
+Or if you prefer, you could just download <a href="#">pre-build release</a> and get fun ;) <ins>Coming Soon</ins>
