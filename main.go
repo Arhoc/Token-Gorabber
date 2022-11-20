@@ -20,12 +20,12 @@ func GrabIP() (string, error) {
 	resp, err := http.Get("https://ip-api.com/json")
 	defer resp.Body.Close()
 	if err != nil {
-		return "", errors.New("No hay conexion a internet")
+		return "", errors.New("[CRITICAL] There's not internet connection, please ensure you're using this program meanwhile WiFi service is enabled")
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return "", errors.New("No se pudo decodificar el body")
+		return "", errors.New("[CRITICAL] We've got critical error and we need to close the program, please refeer to support and post your issue")
 	}
 
 	return string(body), nil
